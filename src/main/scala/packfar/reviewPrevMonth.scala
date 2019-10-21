@@ -1,4 +1,4 @@
-package packwal
+package packfar
 
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, SparkSession}
@@ -112,7 +112,7 @@ object reviewPrevMonth {
       "IND_NB_USER_DST_PM4", "IND_NB_USER_DST_PM6", "IND_NB_USER_DST_PM12")
       .groupBy("DATE_ACTION")
       .sum()
-    test2.orderBy("DATE_ACTION")//.show(50)
-
+    test2.write.format("csv").save("/home/walid/test12")
+    //.orderBy("DATE_ACTION")
   }
 }
