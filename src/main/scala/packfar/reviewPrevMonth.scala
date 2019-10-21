@@ -112,7 +112,7 @@ object reviewPrevMonth {
       "IND_NB_USER_DST_PM4", "IND_NB_USER_DST_PM6", "IND_NB_USER_DST_PM12")
       .groupBy("DATE_ACTION")
       .sum()
-    test2.write.format("csv").save("/home/walid/test12")
+ //   test2.write.format("csv").save("/home/walid/test12")
     //.orderBy("DATE_ACTION")
   }
 }
