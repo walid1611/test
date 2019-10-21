@@ -8,14 +8,21 @@ object reviewPrevMonth {
 
     val spark = SparkSession.builder.master("local[*]").appName(s"OneVsRestExample").getOrCreate()
     spark.sparkContext.setLogLevel("WARN")
+
     val appleDF = spark.read.format("csv").
       option("header", "true").
       option("inferSchema", "true").
-      load("/home/farid/Bureau/aapl-2017.csv")
+      load("/home/walid/data/aapl-2017.csv")
+
+         appleDF.show(50)
+
+
 
     spark.sparkContext.setLogLevel("WARN")
+
+
     //je céer un clée (just pour implementer l'algorithme)
-    val mrcfit_Sans_Previous_kpis = appleDF.withColumn("DATE_ACTION", trunc(col("Date"), "mm")) //je tranc la date (mois)
+    val mrcfit_Sans_Previous_kpis = appleDF.withColumn("DATE_aCTION", trunc(col("Date"), "mm")) //je tranc la date (mois)
       .withColumn("ID_STRUCTURE", concat(lit("User"), dayofmonth(col("Date")).cast("String"))) //j'ajoute la clé(id structure on la deja)
       .withColumn("CD_POSTE_TYPE", concat(lit("Name"), dayofyear(col("Date")).cast("String"))) //j'ajoute la clé(id structure on la deja)
       .withColumnRenamed("Volume", "IND_NB_USER_DST")
@@ -31,6 +38,9 @@ object reviewPrevMonth {
       .withColumn("var_cos_Low", abs(cos(col("Low"))))
       .withColumn("var_sin_Low", abs(sin(col("Low"))))
       .withColumn("var_sin_Low", abs(sin(col("Low"))))
+
+
+    mrcfit_Sans_Previous_kpis.show(50)
 
 
     def duplic_copute_prev(df: DataFrame, pa: Int): DataFrame = {
@@ -102,7 +112,7 @@ object reviewPrevMonth {
       "IND_NB_USER_DST_PM4", "IND_NB_USER_DST_PM6", "IND_NB_USER_DST_PM12")
       .groupBy("DATE_ACTION")
       .sum()
-    test2.orderBy("DATE_ACTION").show()
+    test2.orderBy("DATE_ACTION")//.show(50)
 
   }
 }

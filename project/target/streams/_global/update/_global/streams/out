@@ -1,3 +1,3 @@
-[debug] "not up to date. inChanged = false, force = false
-[debug] Updating ProjectRef(uri("file:/home/farid/Bureau/compute_previous_Kpis/project/"), "compute_previous_kpis-build")...
-[debug] Done updating ProjectRef(uri("file:/home/farid/Bureau/compute_previous_Kpis/project/"), "compute_previous_kpis-build")
+[debug] "not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/home/walid/IdeaProjects/compute_previous_kpis_DataFrame/project/"), "compute_previous_kpis_dataframe-build")...
+[debug] Done updating ProjectRef(uri("file:/home/walid/IdeaProjects/compute_previous_kpis_DataFrame/project/"), "compute_previous_kpis_dataframe-build")

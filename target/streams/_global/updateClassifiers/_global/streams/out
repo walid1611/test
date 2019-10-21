@@ -1,4 +1,4 @@
 [debug] "not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/home/farid/Bureau/compute_previous_Kpis/"), "compute_previous_kpis")...
-[debug] Done updating ProjectRef(uri("file:/home/farid/Bureau/compute_previous_Kpis/"), "compute_previous_kpis")
+[debug] Updating ProjectRef(uri("file:/home/walid/IdeaProjects/compute_previous_kpis_DataFrame/"), "compute_previous_kpis_dataframe")...
+[debug] Done updating ProjectRef(uri("file:/home/walid/IdeaProjects/compute_previous_kpis_DataFrame/"), "compute_previous_kpis_dataframe")
 [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
