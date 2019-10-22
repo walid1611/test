@@ -20,7 +20,7 @@ object reviewPrevMonth {
 
 
     spark.sparkContext.setLogLevel("WARN")
-
+    appleDF.javaRDD.getNumPartitions
     //je céer un clée (just pour implementer l'algorithme)
     val mrcfit_Sans_Previous_kpis = appleDF.withColumn("DATE_ACTION", trunc(col("Date"), "mm")) //je tranc la date (mois)
       .withColumn("ID_STRUCTURE", concat(lit("User"), dayofmonth(col("Date")).cast("String"))) //j'ajoute la clé(id structure on la deja)
