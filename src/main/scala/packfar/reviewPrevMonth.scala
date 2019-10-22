@@ -8,6 +8,7 @@ object reviewPrevMonth {
 
     val spark = SparkSession.builder.master("local[*]").appName(s"OneVsRestExample").getOrCreate()
     spark.sparkContext.setLogLevel("WARN")
+    spark.conf.set("spark.sql.broadcastTimeout","36000")
 
     val appleDF = spark.read.format("csv").
       option("header", "true").
