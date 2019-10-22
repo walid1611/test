@@ -13,11 +13,11 @@ object reviewPrevMonth {
     val appleDF = spark.read.format("csv").
       option("header", "true").
       option("inferSchema", "true").
-      load("hdfs:///demo/data/aapl-2017.csv")
+      load("hdfs:///demo/data/aapl-2017.csv").coalesce(1)
 
          appleDF.show(50)
 
-
+println(appleDF.javaRDD.getNumPartitions)
 
     spark.sparkContext.setLogLevel("WARN")
     appleDF.javaRDD.getNumPartitions
@@ -44,7 +44,6 @@ object reviewPrevMonth {
       import org.apache.spark.sql.functions._
       import spark.implicits._
 
-      df.createOrReplaceTempView("vu")
 
       val maxDATE_ACTION = "'" + spark.sql("select max(DATE_ACTION) from vu ").collect().map(u => u(0)).toList.head + "'"
 
