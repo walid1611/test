@@ -17,7 +17,7 @@ object reviewPrevMonth {
 
          appleDF.show(50)
 
-println(appleDF.javaRDD.getNumPartitions)
+
 
     spark.sparkContext.setLogLevel("WARN")
     appleDF.javaRDD.getNumPartitions
@@ -44,6 +44,7 @@ println(appleDF.javaRDD.getNumPartitions)
       import org.apache.spark.sql.functions._
       import spark.implicits._
 
+      df.createOrReplaceTempView("vu")
 
       val maxDATE_ACTION = "'" + spark.sql("select max(DATE_ACTION) from vu ").collect().map(u => u(0)).toList.head + "'"
 
