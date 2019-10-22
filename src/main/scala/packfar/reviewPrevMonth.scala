@@ -110,11 +110,11 @@ object reviewPrevMonth {
       .sum()
 
             test2
-              //.orderBy("DATE_ACTION")
+              .orderBy("DATE_ACTION")
               .coalesce(1)
               .write
               .format("csv")
-              .save("hdfs:///demo/data/test")
+             .save("hdfs:///demo/data/test")
 
   }
 }
